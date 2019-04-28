@@ -36,7 +36,8 @@ public:
     {
         for(int u=0 ;u<vertices; u++)
         {   
-            for(auto i=adj[u].begin(); i!= adj[u].end(); i++)
+            vector< pair<int, int> >::iterator i;
+            for(i=adj[u].begin(); i!= adj[u].end(); i++)
             {
                 cout<<i->first<<":"<<i->second<<"---->";
             }
@@ -181,8 +182,9 @@ void Prim(Graph g)
             total_sum+=minHeap->heap_array[0]->key ;
         struct HeapNode* min= extractMin(minHeap);
         int u = min->v;
-
-        for(auto i=g.adj[u].begin(); i!=g.adj[u].end(); i++)
+        
+        vector< pair<int, int> >::iterator i;
+        for(i=g.adj[u].begin(); i!=g.adj[u].end(); i++)
         {
             int v = i->first;
 
